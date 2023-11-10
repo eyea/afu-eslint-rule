@@ -1,8 +1,9 @@
 {
-  "name": "@afu/eslint-config-afu",
-  "version": "1.0.0",
+  "name": "@afuteam/eslint-config-fe",
+  "version": "0.0.1",
   "description": "AfuTeam ESLint Rules",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "exports": "./lib/index.js",
   "scripts": {
     "start": "pnpm dev",
     "dev": "run-p dev:*",
@@ -131,7 +132,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "npm@9.8.1",
   "publishConfig": {
     "@eyea:registry": "https://npm.pkg.github.com"
   }
