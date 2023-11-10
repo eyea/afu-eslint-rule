@@ -30,9 +30,7 @@ jobs:
           registry-url: https://registry.npmjs.org
           scope: '@afuteam'
       - run: npm ci
-      - run: npm login --registry=https://registry.npmjs.org --scope=@afuteam --always-auth
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.AFUTEAM_LINT_PUBLISH_NPM_TOKEN }}
+      - run: npm set '//registry.npmjs.org/:_authToken' $NODE_AUTH_TOKEN
       - run: npm publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
