@@ -123,6 +123,6 @@
   },
   "packageManager": "npm@9.8.1",
   "publishConfig": {
-    "@eyea:registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   }
 }
