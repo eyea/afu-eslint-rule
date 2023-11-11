@@ -1,6 +1,6 @@
 {
   "name": "@afuteam/eslint-config-fe",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "AfuTeam ESLint Rules",
   "main": "./lib/index.js",
   "exports": "./lib/index.js",
@@ -121,6 +121,16 @@
   },
   "packageManager": "npm@9.8.1",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "ignore": [
+      "!lib",
+      ".github/workflows",
+      ".flowconfig",
+      "/src",
+      "/reports",
+      "/flow",
+      "scripts/",
+      "CONTRIBUTING.md"
+    ]
   }
 }
