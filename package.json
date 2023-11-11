@@ -1,6 +1,6 @@
 {
   "name": "@afuteam/eslint-plugin-fe",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "AfuTeam ESLint Rules",
   "main": "./lib/index.js",
   "exports": "./lib/index.js",
@@ -17,14 +17,13 @@
     "url": "git+ssh://git@github.com/afu-fe/afu-eslint-rule.git"
   },
   "keywords": [
-    "afu",
     "AfuTeam",
-    "eslint",
-    "eslintconfig",
-    "javascript",
-    "vue",
-    "react",
-    "typescript"
+    "ESLint",
+    "ESlintConfig",
+    "JavasSript",
+    "Vue2",
+    "React",
+    "TypesSript"
   ],
   "author": "eyea <deyesea@gmail.com>",
   "license": "ISC",
