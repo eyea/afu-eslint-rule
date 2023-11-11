@@ -1,14 +1,12 @@
 {
   "name": "@afuteam/eslint-config-fe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AfuTeam ESLint Rules",
   "main": "./lib/index.js",
   "exports": "./lib/index.js",
   "scripts": {
     "start": "npm run dev",
     "dev": "run-p dev:*",
-    "build": "run-s build:*",
-    "build:eslintrc": "ts-node scripts/build.ts",
     "test": "npm run lint && ts-node ./test/index.ts",
     "lint": "run-s eslint",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx,.vue --ignore-pattern \"bad.*\" .",
