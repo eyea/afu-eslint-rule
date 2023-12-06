@@ -43,3 +43,17 @@ npm i @afuteam/eslint-plugin-fe@latest -D
 }
 ```
 
+## TODO
+
+### 增加测试用例
+
+### 组合方式：
+
+1. [ ] vue2 + ts
+2. [ ] vue3 + ts
+3. [ ] react + ts
+4. [ ] react
+5. [ ] vue2
+6. [ ] vue3
+7. [ ] ts
+8. [ ] js

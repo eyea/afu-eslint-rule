@@ -1,11 +1,18 @@
-"use strict";
+// "use strict";
+
+// module.exports = {
+//   root: true,
+//   extends: [
+//     "eslint:recommended",
+//   ],
+//   env: {
+//     node: true,
+//   },
+// };
 
 module.exports = {
-  root: true,
-  extends: [
-    "eslint:recommended",
-  ],
-  env: {
-    node: true,
+  extends: ['./index.js', './react.js', './typescript.js'],
+  globals: {
+    Prism: false,
   },
 };
