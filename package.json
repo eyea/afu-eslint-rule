@@ -132,7 +132,7 @@
       "optional": true
     }
   },
-  "packageManager": "npm@9.8.1",
+  "packageManager": "pnpm@8.0.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "ignore": [
