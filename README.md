@@ -15,7 +15,20 @@ npm i @afuteam/eslint-plugin-fe@latest -D
 ```
 
 <hr >
+
 然后根据项目类型，在配置文件中自行搭配，如:
+
+###  js
+```json
+{
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/js"
+  ],
+}
+```
 
 ###  js + vue2
 ```json
@@ -43,17 +56,61 @@ npm i @afuteam/eslint-plugin-fe@latest -D
 }
 ```
 
-## TODO
+### js + vue3
+```json
+{
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/js",
+    "plugin:@afuteam/fe/vue3"
+  ],
+}
+```
 
-### 增加测试用例
+### typescript4 + vue2
+<!-- typescript 4 -->
+```json
+{
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/typescript4",
+    "plugin:@afuteam/fe/vue2"
+  ],
+}
+```
 
-### 组合方式：
+### typescript4 + vue3
+<!-- typescript 4 -->
+```json
+{
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/typescript4",
+    "plugin:@afuteam/fe/vue3"
+  ],
+}
+```
 
-1. [ ]  vue2 + ts
-2. [ ]  vue3 + ts
-3. [ ]  react + ts
-4. [ ]  react
-5. [ ]  vue2
-6. [ ]  vue3
-7. [ ]  ts
-8. [ ]  js
+### typescript4 + react
+<!-- typescript 4 -->
+```json
+{
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/typescript4",
+    "plugin:@afuteam/fe/react"
+  ],
+}
+```
+
+## 使用问题
+
+请前往 [issues](https://github.com/afu-fe/afu-eslint-rule/issues) 进行反馈，我会及时跟进处理。
