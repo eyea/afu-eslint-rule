@@ -110,15 +110,18 @@ class Builder {
       rule.reason = commentsAST.tags.find(({ title }) => title === 'reason')?.description ?? '';
     }
     // 若没有描述，并且有继承的规则，则使用继承的规则的描述
-    if (!rule.description && rule.extendsBaseRule) {
-      rule.description = this.baseRuleConfig[rule.extendsBaseRule].description;
+    // 2023.12.6 存在base.json不存在的情况 即 this.baseRuleConfig[rule.extendsBaseRule] 为undefined
+    // 他们是： lines-between-class-members padding-line-between-statements no-return-await
+    if (!rule.description && rule.extendsBaseRule && !this.baseRuleConfig[rule.extendsBaseRule]) {
+      rule.description = this.baseRuleConfig[rule.extendsBaseRule]?.description || '';
     }
     // 若没有原因，并且有继承的规则，并且本规则的配置项与继承的规则的配置项一致，则使用继承的规则的原因
     try {
       if (
         !rule.reason &&
         rule.extendsBaseRule &&
-        JSON.stringify(rule.value) === JSON.stringify(this.baseRuleConfig[rule.extendsBaseRule].value)
+        !this.baseRuleConfig[rule.extendsBaseRule] &&
+        JSON.stringify(rule.value) === JSON.stringify(this.baseRuleConfig[rule.extendsBaseRule]?.value)
       ) {
         rule.reason = this.baseRuleConfig[rule.extendsBaseRule].reason;
       }

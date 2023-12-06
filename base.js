@@ -182,11 +182,6 @@ module.exports = {
      */
     'line-comment-position': 'off',
     /**
-     * 类的成员之间是否需要空行
-     * @reason 有时为了紧凑需要挨在一起，有时为了可读性需要空一行
-     */
-    'lines-between-class-members': 'off',
-    /**
      * 使用 a ||= b 替代 a = a || b
      */
     'logical-assignment-operators': 'off',
@@ -218,10 +213,6 @@ module.exports = {
      * 限制函数块中的语句数量
      */
     'max-statements': 'off',
-    /**
-     * 限制一行中的语句数量
-     */
-    'max-statements-per-line': 'off',
     /**
      * 约束多行注释的格式
      * @reason 能写注释已经不容易了，不需要限制太多
@@ -554,10 +545,6 @@ module.exports = {
      */
     'no-new-native-nonconstructor': 'error',
     /**
-     * 禁止直接 new Object
-     */
-    'no-new-object': 'error',
-    /**
      * 禁止使用 new 来生成 Symbol
      */
     'no-new-symbol': 'error',
@@ -574,6 +561,10 @@ module.exports = {
      * 禁止将 Math, JSON 或 Reflect 直接作为函数调用
      */
     'no-obj-calls': 'error',
+    /**
+     * Disallow calls to the `Object` constructor without an argument
+     */
+    'no-object-constructor': 'off',
     /**
      * 禁止使用 0 开头的数字表示八进制数
      * @reason 编译阶段就会报错了
@@ -639,10 +630,6 @@ module.exports = {
      * 禁止在 return 语句里赋值
      */
     'no-return-assign': ['error', 'always'],
-    /**
-     * 禁止在 return 语句里使用 await
-     */
-    'no-return-await': 'off',
     /**
      * 禁止出现 location.href = 'javascript:void(0)';
      * @reason 有些场景下还是需要用到这个
@@ -852,10 +839,6 @@ module.exports = {
      */
     'operator-assignment': 'off',
     /**
-     * 限制语句之间的空行规则，比如变量定义完之后必须要空行
-     */
-    'padding-line-between-statements': 'off',
-    /**
      * 回调函数必须使用箭头函数
      */
     'prefer-arrow-callback': 'error',
@@ -944,20 +927,6 @@ module.exports = {
      * 变量申明必须排好序
      */
     'sort-vars': 'off',
-    /**
-     * 注释的斜线或 * 后必须有空格
-     */
-    'spaced-comment': [
-      'error',
-      'always',
-      {
-        markers: ['/'],
-        block: {
-          exceptions: ['*'],
-          balanced: true,
-        },
-      },
-    ],
     /**
      * 禁止使用 'strict';
      */

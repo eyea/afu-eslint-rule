@@ -25,7 +25,7 @@ export const App: React.FC = () => {
   const Header = (
     <div className="flex-center">
       <div className="container-fluid">
-        <h1 className="site-title">eslint-config-alloy</h1>
+        <h1 className="site-title">@afuteam/eslint-plugin-fe</h1>
         <LanguageSwitch language={language} />
         <form className="top-gap site-form">
           <select
@@ -59,7 +59,7 @@ export const App: React.FC = () => {
 
   return (
     <>
-      <GitHubCorner href="https://github.com/AlloyTeam/eslint-config-alloy" />
+      <GitHubCorner href="https://github.com/afu-fe/afu-eslint-rule" />
       {Header}
       <RuleTable namespace={namespace} hideOff={hideOff} />
       <ReactTooltip

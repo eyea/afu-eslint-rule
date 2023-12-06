@@ -55,8 +55,11 @@ module.exports = {
      */
     'vue/block-lang': 'off',
     /**
-     * 变量名必须是 camelCase 风格的
-     * @reason 很多 api 或文件名都不是 camelCase 风格的
+     * enforce order of component top-level elements
+     */
+    'vue/block-order': 'off',
+    /**
+     *
      */
     'vue/camelcase': 'off',
     /**
@@ -81,16 +84,6 @@ module.exports = {
      */
     'vue/component-options-name-casing': 'off',
     /**
-     * 组件中必须按照 <script>, <template>, <style> 排序
-     * @reason 这是官方建议的顺序
-     */
-    'vue/component-tags-order': [
-      'error',
-      {
-        order: [['script', 'template'], 'style'],
-      },
-    ],
-    /**
      * 自定义事件名必须用 camelCase 风格
      */
     'vue/custom-event-name-casing': 'error',
@@ -107,12 +100,11 @@ module.exports = {
      */
     'vue/define-props-declaration': 'off',
     /**
-     * 禁止使用 foo['bar']，必须写成 foo.bar
-     * @reason 当需要写一系列属性的时候，可以更统一
+     *
      */
     'vue/dot-notation': 'off',
     /**
-     * 必须使用 === 或 !==，禁止使用 == 或 !=
+     *
      */
     'vue/eqeqeq': ['error', 'always'],
     /**
@@ -194,11 +186,11 @@ module.exports = {
      */
     'vue/no-computed-properties-in-data': 'error',
     /**
-     * 禁止使用 console
+     *
      */
     'vue/no-console': 'off',
     /**
-     * 禁止将常量作为分支条件判断中的测试表达式，但允许作为循环条件判断中的测试表达式
+     *
      */
     'vue/no-constant-condition': 'off',
     /**
@@ -237,6 +229,10 @@ module.exports = {
      * 禁止使用已废弃的 inline-template 属性
      */
     'vue/no-deprecated-inline-template': 'error',
+    /**
+     * disallow deprecated `model` definition (in Vue.js 3.0.0+)
+     */
+    'vue/no-deprecated-model-definition': 'off',
     /**
      * 禁止使用已废弃的 this
      */
@@ -304,7 +300,7 @@ module.exports = {
      */
     'vue/no-empty-component-block': 'error',
     /**
-     * 禁止解构赋值中出现空 {} 或 []
+     *
      */
     'vue/no-empty-pattern': 'error',
     /**
@@ -316,7 +312,7 @@ module.exports = {
      */
     'vue/no-expose-after-await': 'error',
     /**
-     * 禁止使用特殊空白符（比如全角空格），除非是出现在字符串、正则表达式或模版字符串中
+     *
      */
     'vue/no-irregular-whitespace': [
       'error',
@@ -337,7 +333,7 @@ module.exports = {
      */
     'vue/no-lone-template': 'error',
     /**
-     * 禁止使用超出 js 精度范围的数字
+     *
      */
     'vue/no-loss-of-precision': 'error',
     /**
@@ -365,9 +361,9 @@ module.exports = {
      */
     'vue/no-ref-as-operand': 'error',
     /**
-     * 禁止解构 ref
+     * disallow usages of ref objects that can lead to loss of reactivity
      */
-    'vue/no-ref-object-destructure': 'error',
+    'vue/no-ref-object-reactivity-loss': 'off',
     /**
      * 禁止将有默认值的 prop 设为必选属性
      */
@@ -421,7 +417,7 @@ module.exports = {
      */
     'vue/no-restricted-static-attribute': 'off',
     /**
-     * 禁止使用指定的语法
+     *
      */
     'vue/no-restricted-syntax': 'off',
     /**
@@ -433,9 +429,9 @@ module.exports = {
      */
     'vue/no-root-v-if': 'off',
     /**
-     * 禁止对 setup 中的 props 解构
+     * disallow usages that lose the reactivity of `props` passed to `setup`
      */
-    'vue/no-setup-props-destructure': 'error',
+    'vue/no-setup-props-reactivity-loss': 'off',
     /**
      * 组件的 data 属性的值必须是一个函数
      */
@@ -445,7 +441,7 @@ module.exports = {
      */
     'vue/no-side-effects-in-computed-properties': 'off',
     /**
-     * 禁止在数组中出现连续的逗号
+     *
      */
     'vue/no-sparse-arrays': 'error',
     /**
@@ -506,11 +502,15 @@ module.exports = {
      */
     'vue/no-use-computed-property-like-method': 'error',
     /**
+     * disallow using `v-else-if`/`v-else` on the same element as `v-for`
+     */
+    'vue/no-use-v-else-with-v-for': 'off',
+    /**
      * 禁止在同一个元素上使用 v-if 和 v-for 指令
      */
     'vue/no-use-v-if-with-v-for': 'error',
     /**
-     * 禁止出现没必要的字符串连接
+     *
      */
     'vue/no-useless-concat': 'error',
     /**
@@ -542,8 +542,7 @@ module.exports = {
      */
     'vue/no-watch-after-await': 'error',
     /**
-     * 必须使用 a = {b} 而不是 a = {b: b}
-     * @reason 有时后者可以使代码结构更清晰
+     *
      */
     'vue/object-shorthand': 'off',
     /**
@@ -584,7 +583,7 @@ module.exports = {
      */
     'vue/prefer-separate-static-class': 'off',
     /**
-     * 必须使用模版字符串而不是字符串连接
+     *
      */
     'vue/prefer-template': 'off',
     /**
@@ -654,6 +653,10 @@ module.exports = {
      * transition 内部必须有条件指令
      */
     'vue/require-toggle-inside-transition': 'error',
+    /**
+     * enforce adding type declarations to object props
+     */
+    'vue/require-typed-object-prop': 'off',
     /**
      * 要求 ref 和 shallowRef 函数需要强制类型化
      * @reason 需要 ts 支持

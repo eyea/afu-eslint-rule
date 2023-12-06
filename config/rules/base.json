@@ -307,17 +307,6 @@
     "extendsBaseRule": "",
     "requiresTypeChecking": false
   },
-  "lines-between-class-members": {
-    "name": "lines-between-class-members",
-    "value": "off",
-    "description": "类的成员之间是否需要空行",
-    "reason": "有时为了紧凑需要挨在一起，有时为了可读性需要空一行",
-    "badExample": "",
-    "goodExample": "",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
   "logical-assignment-operators": {
     "name": "logical-assignment-operators",
     "value": "off",
@@ -399,17 +388,6 @@
     "name": "max-statements",
     "value": "off",
     "description": "限制函数块中的语句数量",
-    "reason": "",
-    "badExample": "",
-    "goodExample": "",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "max-statements-per-line": {
-    "name": "max-statements-per-line",
-    "value": "off",
-    "description": "限制一行中的语句数量",
     "reason": "",
     "badExample": "",
     "goodExample": "",
@@ -1176,17 +1154,6 @@
     "extendsBaseRule": "",
     "requiresTypeChecking": false
   },
-  "no-new-object": {
-    "name": "no-new-object",
-    "value": "error",
-    "description": "禁止直接 new Object",
-    "reason": "",
-    "badExample": "<span class=\"token keyword\">const</span> foo <span class=\"token operator\">=</span> <mark class=\"eslint-error\" data-tip=\"The object literal notation {} is preferable.&lt;br/&gt;&lt;span class='eslint-error-rule-id'&gt;eslint(no-new-object)&lt;/span&gt;\"><span class=\"token keyword\">new</span> <span class=\"token class-name\">Object</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span></mark><span class=\"token punctuation\">;</span>",
-    "goodExample": "<span class=\"token keyword\">const</span> foo <span class=\"token operator\">=</span> <span class=\"token punctuation\">{</span><span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
   "no-new-symbol": {
     "name": "no-new-symbol",
     "value": "error",
@@ -1227,6 +1194,17 @@
     "reason": "",
     "badExample": "<span class=\"token keyword\">const</span> foo <span class=\"token operator\">=</span> <mark class=\"eslint-error\" data-tip=\"&amp;apos;Math&amp;apos; is not a function.&lt;br/&gt;&lt;span class='eslint-error-rule-id'&gt;eslint(no-obj-calls)&lt;/span&gt;\"><span class=\"token function\">Math</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span></mark><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">const</span> bar <span class=\"token operator\">=</span> <mark class=\"eslint-error\" data-tip=\"&amp;apos;JSON&amp;apos; is not a function.&lt;br/&gt;&lt;span class='eslint-error-rule-id'&gt;eslint(no-obj-calls)&lt;/span&gt;\"><span class=\"token constant\">JSON</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span></mark><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">const</span> baz <span class=\"token operator\">=</span> <mark class=\"eslint-error\" data-tip=\"&amp;apos;Reflect&amp;apos; is not a function.&lt;br/&gt;&lt;span class='eslint-error-rule-id'&gt;eslint(no-obj-calls)&lt;/span&gt;\"><span class=\"token function\">Reflect</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span></mark><span class=\"token punctuation\">;</span>",
     "goodExample": "<span class=\"token keyword\">const</span> foo <span class=\"token operator\">=</span> Math<span class=\"token punctuation\">.</span><span class=\"token function\">random</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">const</span> bar <span class=\"token operator\">=</span> <span class=\"token constant\">JSON</span><span class=\"token punctuation\">.</span><span class=\"token function\">parse</span><span class=\"token punctuation\">(</span><span class=\"token string\">'{}'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">const</span> baz <span class=\"token operator\">=</span> Reflect<span class=\"token punctuation\">.</span><span class=\"token function\">get</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">{</span> x<span class=\"token punctuation\">:</span> <span class=\"token number\">1</span><span class=\"token punctuation\">,</span> y<span class=\"token punctuation\">:</span> <span class=\"token number\">2</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span> <span class=\"token string\">'x'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>",
+    "fixable": false,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  },
+  "no-object-constructor": {
+    "name": "no-object-constructor",
+    "value": "off",
+    "description": "Disallow calls to the `Object` constructor without an argument",
+    "reason": "",
+    "badExample": "",
+    "goodExample": "",
     "fixable": false,
     "extendsBaseRule": "",
     "requiresTypeChecking": false
@@ -1392,17 +1370,6 @@
     "reason": "",
     "badExample": "<span class=\"token keyword\">function</span> <span class=\"token function\">foo</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span> <span class=\"token punctuation\">{</span>\n  <mark class=\"eslint-error\" data-tip=\"Return statement should not contain assignment.&lt;br/&gt;&lt;span class='eslint-error-rule-id'&gt;eslint(no-return-assign)&lt;/span&gt;\"><span class=\"token keyword\">return</span> <span class=\"token punctuation\">(</span>bar <span class=\"token operator\">=</span> <span class=\"token number\">1</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></mark>\n<span class=\"token punctuation\">}</span>",
     "goodExample": "<span class=\"token keyword\">function</span> <span class=\"token function\">foo</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span> <span class=\"token punctuation\">{</span>\n  bar <span class=\"token operator\">=</span> <span class=\"token number\">1</span><span class=\"token punctuation\">;</span>\n  <span class=\"token keyword\">return</span> bar<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "no-return-await": {
-    "name": "no-return-await",
-    "value": "off",
-    "description": "禁止在 return 语句里使用 await",
-    "reason": "",
-    "badExample": "",
-    "goodExample": "",
     "fixable": false,
     "extendsBaseRule": "",
     "requiresTypeChecking": false
@@ -1891,17 +1858,6 @@
     "extendsBaseRule": "",
     "requiresTypeChecking": false
   },
-  "padding-line-between-statements": {
-    "name": "padding-line-between-statements",
-    "value": "off",
-    "description": "限制语句之间的空行规则，比如变量定义完之后必须要空行",
-    "reason": "",
-    "badExample": "",
-    "goodExample": "",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
   "prefer-arrow-callback": {
     "name": "prefer-arrow-callback",
     "value": "error",
@@ -2130,17 +2086,6 @@
     "badExample": "",
     "goodExample": "",
     "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "spaced-comment": {
-    "name": "spaced-comment",
-    "value": ["error", "always", { "markers": ["/"], "block": { "exceptions": ["*"], "balanced": true } }],
-    "description": "注释的斜线或 * 后必须有空格",
-    "reason": "",
-    "badExample": "<span class=\"token comment\"><mark class=\"eslint-error\" data-tip=\"Expected space or tab after &amp;apos;//&amp;apos; in comment.&lt;br/&gt;&lt;span class='eslint-error-rule-id'&gt;eslint(spaced-comment)&lt;/span&gt;\">//foo</mark></span>\n<span class=\"token comment\"><mark class=\"eslint-error\" data-tip=\"Expected exception block, space or tab after &amp;apos;/*&amp;apos; in comment.&lt;br/&gt;&lt;span class='eslint-error-rule-id'&gt;eslint(spaced-comment)&lt;/span&gt;\">/*bar */</mark></span>\n<span class=\"token comment\"><mark class=\"eslint-error\" data-tip=\"Expected exception block, space or tab after &amp;apos;/**&amp;apos; in comment.&lt;br/&gt;&lt;span class='eslint-error-rule-id'&gt;eslint(spaced-comment)&lt;/span&gt;\">/**baz */</mark></span>",
-    "goodExample": "<span class=\"token comment\">// foo</span>\n<span class=\"token comment\">/* bar */</span>\n<span class=\"token comment\">/** baz */</span>",
-    "fixable": false,
     "extendsBaseRule": "",
     "requiresTypeChecking": false
   },

@@ -59,7 +59,7 @@ module.exports = {
      */
     '@typescript-eslint/class-literal-property-style': ['error', 'fields'],
     /**
-     * 在类的非静态方法中，必须存在对 this 的引用
+     *
      */
     'class-methods-use-this': 'off',
     '@typescript-eslint/class-methods-use-this': 'off',
@@ -101,8 +101,7 @@ module.exports = {
     'default-param-last': 'off',
     '@typescript-eslint/default-param-last': 'off',
     /**
-     * 禁止使用 foo['bar']，必须写成 foo.bar
-     * @reason 当需要写一系列属性的时候，可以更统一
+     *
      */
     'dot-notation': 'off',
     '@typescript-eslint/dot-notation': 'off',
@@ -121,16 +120,20 @@ module.exports = {
      */
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     /**
-     * 变量必须在定义的时候赋值
+     *
      */
     'init-declarations': 'off',
     '@typescript-eslint/init-declarations': 'off',
     /**
-     * 类的成员之间是否需要空行
-     * @reason 有时为了紧凑需要挨在一起，有时为了可读性需要空一行
+     *
      */
     'lines-between-class-members': 'off',
     '@typescript-eslint/lines-between-class-members': 'off',
+    /**
+     * Enforce a maximum number of parameters in function definitions
+     */
+    'max-params': 'off',
+    '@typescript-eslint/max-params': 'off',
     /**
      * 指定类成员的排序规则
      * @reason 优先级：
@@ -197,7 +200,7 @@ module.exports = {
      */
     '@typescript-eslint/no-confusing-void-expression': 'off',
     /**
-     * 禁止重复定义类的成员
+     *
      * @reason 编译阶段就会报错了
      */
     'no-dupe-class-members': 'off',
@@ -215,8 +218,7 @@ module.exports = {
      */
     '@typescript-eslint/no-dynamic-delete': 'off',
     /**
-     * 不允许有空函数
-     * @reason 有时需要将一个空函数设置为某个项的默认值
+     *
      */
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': 'off',
@@ -259,8 +261,7 @@ module.exports = {
      */
     '@typescript-eslint/no-inferrable-types': 'error',
     /**
-     * 禁止在类之外的地方使用 this
-     * @reason 只允许在 class 中使用 this
+     *
      */
     'no-invalid-this': 'off',
     '@typescript-eslint/no-invalid-this': 'error',
@@ -270,18 +271,17 @@ module.exports = {
      */
     '@typescript-eslint/no-invalid-void-type': 'error',
     /**
-     * 禁止在循环内的函数内部出现循环体条件语句中定义的变量
-     * @reason 使用 let 就已经解决了这个问题了
+     *
      */
     'no-loop-func': 'off',
     '@typescript-eslint/no-loop-func': 'off',
     /**
-     * 禁止使用超出 js 精度范围的数字
+     *
      */
     'no-loss-of-precision': 'off',
     '@typescript-eslint/no-loss-of-precision': 'error',
     /**
-     * 禁止使用 magic numbers
+     *
      */
     'no-magic-numbers': 'off',
     '@typescript-eslint/no-magic-numbers': 'off',
@@ -328,8 +328,7 @@ module.exports = {
      */
     '@typescript-eslint/no-non-null-assertion': 'off',
     /**
-     * 禁止重复定义变量
-     * @reason 禁用 var 之后，编译阶段就会报错了
+     *
      */
     'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': 'off',
@@ -343,13 +342,12 @@ module.exports = {
      */
     '@typescript-eslint/no-require-imports': 'error',
     /**
-     * 禁止导入指定的模块
+     *
      */
     'no-restricted-imports': 'off',
     '@typescript-eslint/no-restricted-imports': 'off',
     /**
-     * 禁止变量名与上层作用域内的已定义的变量重复
-     * @reason 很多时候函数的形参和传参是同名的
+     *
      */
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'off',
@@ -420,7 +418,7 @@ module.exports = {
      */
     '@typescript-eslint/no-unsafe-return': 'off',
     /**
-     * 禁止无用的表达式
+     *
      */
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': [
@@ -432,7 +430,7 @@ module.exports = {
       },
     ],
     /**
-     * 已定义的变量必须使用
+     *
      */
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
@@ -443,7 +441,7 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     /**
-     * 禁止出现没必要的 constructor
+     *
      */
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
@@ -461,7 +459,7 @@ module.exports = {
      */
     '@typescript-eslint/non-nullable-type-assertion-style': 'off',
     /**
-     * 限制语句之间的空行规则，比如变量定义完之后必须要空行
+     *
      */
     'padding-line-between-statements': 'off',
     '@typescript-eslint/padding-line-between-statements': 'off',
@@ -474,6 +472,11 @@ module.exports = {
      * @reason as const 是新语法，不是很常见
      */
     '@typescript-eslint/prefer-as-const': 'off',
+    /**
+     * Require destructuring from arrays and/or objects
+     */
+    'prefer-destructuring': 'off',
+    '@typescript-eslint/prefer-destructuring': 'off',
     /**
      * 枚举值必须初始化
      */
@@ -547,7 +550,7 @@ module.exports = {
      */
     '@typescript-eslint/require-array-sort-compare': 'off',
     /**
-     * async 函数中必须存在 await 语句
+     *
      */
     'require-await': 'off',
     '@typescript-eslint/require-await': 'off',
@@ -560,7 +563,7 @@ module.exports = {
      */
     '@typescript-eslint/restrict-template-expressions': 'off',
     /**
-     * 禁止在 return 语句里使用 await
+     *
      */
     'no-return-await': 'off',
     '@typescript-eslint/return-await': 'off',

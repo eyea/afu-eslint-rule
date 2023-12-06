@@ -677,5 +677,15 @@
   "强制执行有效的 defineOptions 编译器宏": "enforce valid `defineOptions` compiler macro",
   "需要 ts 支持": "需要 ts 支持",
   "可以防止错误的使用 defineOptions": "可以防止错误的使用 defineOptions",
-  "ES2022 的新接口，兼容性不太好": "ES2022 的新接口，兼容性不太好"
+  "ES2022 的新接口，兼容性不太好": "ES2022 的新接口，兼容性不太好",
+  "Disallow calls to the `Object` constructor without an argument": "Disallow calls to the `Object` constructor without an argument",
+  "enforce order of component top-level elements": "enforce order of component top-level elements",
+  "disallow deprecated `model` definition (in Vue.js 3.0.0+)": "disallow deprecated `model` definition (in Vue.js 3.0.0+)",
+  "disallow usages of ref objects that can lead to loss of reactivity": "disallow usages of ref objects that can lead to loss of reactivity",
+  "disallow usages that lose the reactivity of `props` passed to `setup`": "disallow usages that lose the reactivity of `props` passed to `setup`",
+  "disallow using `v-else-if`/`v-else` on the same element as `v-for`": "disallow using `v-else-if`/`v-else` on the same element as `v-for`",
+  "enforce adding type declarations to object props": "enforce adding type declarations to object props",
+  "": "",
+  "Enforce a maximum number of parameters in function definitions": "Enforce a maximum number of parameters in function definitions",
+  "Require destructuring from arrays and/or objects": "Require destructuring from arrays and/or objects"
 }
