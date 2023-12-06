@@ -3,7 +3,7 @@ AfuTeam eslint plugin
 
 ## 安装
 ```bash
-npm i @afuteam/eslint-plugin-fe@latest -D
+npm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest -D
 ```
 
 ## 配置
@@ -30,7 +30,30 @@ npm i @afuteam/eslint-plugin-fe@latest -D
 }
 ```
 
+###  js + typescript4
+
+```bash
+npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin  @afuteam/eslint-plugin-fe@latest
+```
+
+```json
+{
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/js",
+    "plugin:@afuteam/fe/typescript4",
+  ],
+}
+```
+
 ###  js + vue2
+
+```bash
+npm install --save-dev eslint @babel/core @babel/eslint-parser vue-eslint-parser eslint-plugin-vue  @afuteam/eslint-plugin-fe@latest
+```
+
 ```json
 {
   "plugins": [
@@ -44,6 +67,11 @@ npm i @afuteam/eslint-plugin-fe@latest -D
 ```
 
 ### js + react
+
+```bash
+npm install --save-dev eslint @babel/core @babel/eslint-parser @babel/preset-react@latest eslint-plugin-react @afuteam/eslint-plugin-fe@latest
+```
+
 ```json
 {
   "plugins": [
@@ -57,6 +85,11 @@ npm i @afuteam/eslint-plugin-fe@latest -D
 ```
 
 ### js + vue3
+
+```bash
+npm install --save-dev eslint @babel/core @babel/eslint-parser vue-eslint-parser eslint-plugin-vue  @afuteam/eslint-plugin-fe@latest
+```
+
 ```json
 {
   "plugins": [
@@ -72,7 +105,7 @@ npm i @afuteam/eslint-plugin-fe@latest -D
 ### js + typescript4 + vue2
 
 ```bash
-pnpm i @babel/core @babel/eslint-parser @typescript-eslint/eslint-plugin @typescript-eslint/parser @vue/eslint-config-typescript eslint eslint-plugin-vue vue-eslint-parser @afuteam/eslint-plugin-fe@latest
+npm install --save-dev @babel/core @babel/eslint-parser @typescript-eslint/eslint-plugin @typescript-eslint/parser @vue/eslint-config-typescript eslint eslint-plugin-vue vue-eslint-parser @afuteam/eslint-plugin-fe@latest
 ```
 
 ```json
@@ -105,22 +138,27 @@ pnpm i @babel/core @babel/eslint-parser @typescript-eslint/eslint-plugin @typesc
     "@afuteam/fe"
   ],
   "extends": [
+    "plugin:@afuteam/fe/vue3",
     "plugin:@afuteam/fe/typescript4",
-    "plugin:@afuteam/fe/vue3"
   ],
 }
 ```
 
-### typescript4 + react
-<!-- typescript 4 -->
+### js + typescript4 + react
+
+```bash
+npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react  @afuteam/eslint-plugin-fe@latest
+```
+
 ```json
 {
   "plugins": [
     "@afuteam/fe"
   ],
   "extends": [
+    "plugin:@afuteam/fe/js",
+    "plugin:@afuteam/fe/react",
     "plugin:@afuteam/fe/typescript4",
-    "plugin:@afuteam/fe/react"
   ],
 }
 ```

@@ -1,6 +1,6 @@
 {
   "name": "@afuteam/eslint-plugin-fe",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "AfuTeam ESLint Rules",
   "main": "./lib/index.js",
   "exports": "./lib/index.js",
