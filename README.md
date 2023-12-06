@@ -69,22 +69,36 @@ npm i @afuteam/eslint-plugin-fe@latest -D
 }
 ```
 
-### typescript4 + vue2
-<!-- typescript 4 -->
+### js + typescript4 + vue2
+
+```bash
+pnpm i @babel/core @babel/eslint-parser @typescript-eslint/eslint-plugin @typescript-eslint/parser @vue/eslint-config-typescript eslint eslint-plugin-vue vue-eslint-parser @afuteam/eslint-plugin-fe@latest
+```
+
 ```json
 {
   "plugins": [
     "@afuteam/fe"
   ],
   "extends": [
+    "plugin:@afuteam/fe/js",
+    "plugin:@afuteam/fe/vue2",
     "plugin:@afuteam/fe/typescript4",
-    "plugin:@afuteam/fe/vue2"
   ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": {
+      "js": "@babel/eslint-parser",
+      "jsx": "@babel/eslint-parser",
+      "ts": "@typescript-eslint/parser",
+      "tsx": "@typescript-eslint/parser",
+    },
+  },
 }
 ```
 
 ### typescript4 + vue3
-<!-- typescript 4 -->
+
 ```json
 {
   "plugins": [
