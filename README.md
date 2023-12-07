@@ -1,4 +1,7 @@
 # @afuteam/eslint-plugin-fe
+
+[![Build Status](https://github.com/afu-fe/afu-eslint-rule/workflows/ci/badge.svg)](https://github.com/afu-fe/afu-eslint-rule/actions/workflows/ci.yml)[![Build Status](https://github.com/afu-fe/afu-eslint-rule/workflows/rulesCoverage/badge.svg)](https://github.com/afu-fe/afu-eslint-rule/actions/workflows/rulesCoverage.yml)[![npm package](https://img.shields.io/npm/v/@afuteam/eslint-plugin-fe.svg)](https://www.npmjs.com/package/@afuteam/eslint-plugin-fe)[![npm downloads](https://img.shields.io/npm/dm/@afuteam/eslint-plugin-fe.svg)](https://www.npmjs.com/package/@afuteam/eslint-plugin-fe)
+
 AfuTeam eslint plugin
 
 ## 安装
