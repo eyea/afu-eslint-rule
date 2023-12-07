@@ -1,6 +1,6 @@
 # @afuteam/eslint-plugin-fe
 
-[![Build Status](https://github.com/afu-fe/afu-eslint-rule/workflows/ci/badge.svg)](https://github.com/afu-fe/afu-eslint-rule/actions/workflows/ci.yml)[![Build Status](https://github.com/afu-fe/afu-eslint-rule/workflows/rulesCoverage/badge.svg)](https://github.com/afu-fe/afu-eslint-rule/actions/workflows/rulesCoverage.yml)[![npm package](https://img.shields.io/npm/v/@afuteam/eslint-plugin-fe.svg)](https://www.npmjs.com/package/@afuteam/eslint-plugin-fe)[![npm downloads](https://img.shields.io/npm/dm/@afuteam/eslint-plugin-fe.svg)](https://www.npmjs.com/package/@afuteam/eslint-plugin-fe)
+[![Build Status](https://github.com/eyea/afu-eslint-rule/workflows/ci/badge.svg)](https://github.com/eyea/afu-eslint-rule/actions/workflows/ci.yml)[![Build Status](https://github.com/eyea/afu-eslint-rule/workflows/rulesCoverage/badge.svg)](https://github.com/eyea/afu-eslint-rule/actions/workflows/rulesCoverage.yml)[![npm package](https://img.shields.io/npm/v/@afuteam/eslint-plugin-fe.svg)](https://www.npmjs.com/package/@afuteam/eslint-plugin-fe)[![npm downloads](https://img.shields.io/npm/dm/@afuteam/eslint-plugin-fe.svg)](https://www.npmjs.com/package/@afuteam/eslint-plugin-fe)
 
 AfuTeam eslint plugin
 
@@ -168,4 +168,4 @@ npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-e
 
 ## 使用问题
 
-请前往 [issues](https://github.com/afu-fe/afu-eslint-rule/issues) 进行反馈，我会及时跟进处理。
+请前往 [issues](https://github.com/eyea/afu-eslint-rule/issues) 进行反馈，我会及时跟进处理。
