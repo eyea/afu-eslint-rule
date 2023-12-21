@@ -1,9 +1,9 @@
 // Basic: Eslint/React Version: 1.0.0
+const BaseOptions = require('./base.js');
 
 module.exports = {
-  // 继承的规则 [扩展]
+  ...BaseOptions,
   extends: [
-    './base.js',
     'plugin:react/recommended', // eslint-plugin-react
     'plugin:react/jsx-runtime', // react 17+, 目前共2条
     'plugin:jsx-a11y/recommended',  // jsx-a11y 此规则建议和Recommended同步，因此这部分的规则同Recommended的a11y的rules

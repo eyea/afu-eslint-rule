@@ -1,9 +1,9 @@
 // Basic: Eslint/JavaScript Version: 1.0.0
+const BaseOptions = require('./base.js');
 
 module.exports = {
-  // 继承的规则 [扩展]
+  ...BaseOptions,
   extends: [
-    './base.js',
     'eslint:recommended'
   ],
   // 启用的规则

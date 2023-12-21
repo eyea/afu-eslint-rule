@@ -1,19 +1,8 @@
 {
   "name": "@afuteam/eslint-plugin-fe",
-  "version": "0.0.9-beta-6",
+  "version": "0.0.9-beta-7",
   "description": "AfuTeam ESLint Rules",
-  "main": "./lib/index.js",
-  "eslintConfig": {
-    "configs": {
-      "fe": "./lib/index.js",
-      "react": "./lib/configs/react.js",
-      "vue2": "./lib/configs/vue2.js",
-      "vue3": "./lib/configs/vue3.js",
-      "react16": "./lib/configs/react16.js",
-      "typescript4": "./lib/configs/ts4.js",
-      "typescript5": "./lib/configs/ts5.js"
-    }
-  },
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

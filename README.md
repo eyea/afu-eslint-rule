@@ -23,6 +23,50 @@ AfuTeam Eslint Rules 是一个基于 eslint 的 __前端代码规范集合__。
   </ul>
 </details>
 
+<details>
+  <summary>默认的一些配置</summary>
+
+  ```js
+    module.exports = {
+      // 以当前目录为根目录，不再向上查找 .eslintrc.js
+      root: true,
+      parser: '@babel/eslint-parser',
+      parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: 'module',
+        ecmaFeatures: {
+          // 不允许 return 语句出现在 global 环境下
+          globalReturn: false,
+          // 开启全局 script 模式
+          impliedStrict: true,
+          jsx: true,
+        },
+        // 即使没有 babelrc 配置文件，也使用 @babel/eslint-parser 来解析
+        requireConfigFile: false,
+        // 仅允许 import export 语句出现在模块的顶层
+        allowImportExportEverywhere: false,
+      },
+      env: {
+      browser: true,
+      commonjs: true,
+      es6: true,
+      node: true,
+      es2021: true,
+      },
+      globals: {
+        AHAPP: 'readonly',
+        AHJavascriptBridge: 'readonly',
+        trackPageView: 'readonly',
+        trackCustomEvent: 'readonly',
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly',
+      },
+      ignorePatterns: ['*.min.*'],
+    }
+  ```
+
+</details>
+
 
 ## 安装
 
@@ -39,8 +83,8 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe'
+  "plugins": [
+    "@afuteam/fe"
   ]
 }
 ```
@@ -48,6 +92,23 @@ module.exports = {
 
 <em>然后根据项目包含的类型，在配置文件中自行搭配，如:</em>
 
+### JavaScript
+
+```bash
+pnpm i eslint @afuteam/eslint-plugin-fe@latest -D
+```
+
+```js
+module.exports = {
+  // 省略其他配置
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/js"
+  ]
+}
+```
 
 ###  React(16.x、17.x+)
 
@@ -60,9 +121,11 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe',
-    '@afuteam/fe/react16'
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/react16"
   ]
 }
 ```
@@ -86,9 +149,11 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe',
-    '@afuteam/fe/react'
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/react"
   ]
 }
 ```
@@ -115,9 +180,11 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe',
-    '@afuteam/fe/vue2'
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/vue2"
   ]
 }
 ```
@@ -141,9 +208,11 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe',
-    '@afuteam/fe/vue3'
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/vue3"
   ]
 }
 ```
@@ -170,9 +239,11 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe',
-    '@afuteam/fe/typescript4'
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/ts4"
   ]
 }
 ```
@@ -196,9 +267,11 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe',
-    '@afuteam/fe/typescript5'
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/ts5"
   ]
 }
 ```
@@ -225,18 +298,20 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe',
-    '@afuteam/fe/vue2',
-    '@afuteam/fe/typescript4'
+  "plugins": [
+    "@afuteam/fe"
   ],
-  parser: 'vue-eslint-parser',
+  "extends": [
+    "plugin:@afuteam/fe/vue2",
+    "plugin:@afuteam/fe/ts4"
+  ],
+  parser: "vue-eslint-parser",
   parserOptions: {
     parser: {
-      js: '@babel/eslint-parser',
-      jsx: '@babel/eslint-parser',
-      ts: '@typescript-eslint/parser',
-      tsx: '@typescript-eslint/parser',
+      js: "@babel/eslint-parser",
+      jsx: "@babel/eslint-parser",
+      ts: "@typescript-eslint/parser",
+      tsx: "@typescript-eslint/parser",
     },
   },
 }
@@ -252,10 +327,12 @@ pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest 
 ```js
 module.exports = {
   // 省略其他配置
-  extends: [
-    '@afuteam/fe',
-    '@afuteam/fe/react',
-    '@afuteam/fe/typescript5'
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/react",
+    "plugin:@afuteam/fe/ts5"
   ]
 }
 ```
@@ -266,7 +343,23 @@ module.exports = {
 ### 为什么只维护rules？
 围绕核心 __规则定制化__，不想重复造轮子。
 
-### 使用这套规则，在我的项目里需要安装这些依赖
+### 按上面的配置了，项目的js文件没有进行lint检测
+请注意，纯js项目现在很少，但也存在；需要在 __extends__ 进行配置的，通常在组合项目中，位于第一行，如下，这个很容易遗忘。
+
+```js
+module.exports = {
+  // 省略其他配置
+  "plugins": [
+    "@afuteam/fe"
+  ],
+  "extends": [
+    "plugin:@afuteam/fe/js",
+    ...
+  ]
+}
+```
+
+### 使用这套规则，在我的项目里还需要做一些额外的处理
 
 非常欢迎这类经验，请前往 [Issues](https://github.com/eyea/afu-eslint-rule/issues) 进行留言，或者 [Pull request](https://github.com/eyea/afu-eslint-rule/pulls) 共建
 我会及时跟进处理，并适时更新到文档中，便于大家快速使用。

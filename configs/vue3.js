@@ -1,16 +1,17 @@
-// Basic: Eslint/Vue2 Version: 1.0.0
+// Basic: Eslint/Vue3 Version: 1.0.0
+const BaseOptions = require('./base.js');
 
 module.exports = {
+  ...BaseOptions,
   extends: [
-    './base.js',
-    'plugin:vue/essential'
+    'plugin:vue/vue3-essential'
   ],
   parser: 'vue-eslint-parser',
   parserOptions: {
-    // 设置 js 的解析器为 babel-eslint
+    // 设置 js 的解析器为 @babel/eslint-parser
     // https://github.com/mysticatea/vue-eslint-parser#-options
-    parser: 'babel-eslint',
-    ecmaVersion: 2019,
+    parser: '@babel/eslint-parser',
+    ecmaVersion: 2021,
     // ECMAScript modules 模式
     sourceType: 'module',
     ecmaFeatures: {
@@ -20,12 +21,12 @@ module.exports = {
       impliedStrict: true,
       jsx: true,
     },
-    // 即使没有 babelrc 配置文件，也使用 babel-eslint 来解析
+    // 即使没有 babelrc 配置文件，也使用 @babel/eslint-parser 来解析
     requireConfigFile: false,
     // 仅允许 import export 语句出现在模块的顶层
     allowImportExportEverywhere: false,
   },
- plugins: ['vue'],
- rules: {
- },
+  plugins: ['vue'],
+  rules: {
+  },
 }
