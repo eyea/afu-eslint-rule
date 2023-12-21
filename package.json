@@ -1,6 +1,6 @@
 {
   "name": "@afuteam/eslint-plugin-fe",
-  "version": "0.0.9-beta-1",
+  "version": "0.0.9-beta-2",
   "description": "AfuTeam ESLint Rules",
   "main": "./lib/index.js",
   "scripts": {
@@ -30,43 +30,6 @@
   },
   "homepage": "https://github.com/afu-fe/afu-eslint-rule#readme",
 
-  "peerDependencies": {
-    "@babel/eslint-parser": "7.x",
-    "@babel/preset-react": "7.x",
-    "@typescript-eslint/eslint-plugin": ">=5.55.0",
-    "@typescript-eslint/parser": ">=5.0.0",
-    "eslint": ">=8.24.0",
-    "eslint-plugin-react": ">=7.31.8",
-    "eslint-plugin-vue": ">=9.5.1",
-    "typescript": "5.x",
-    "vue-eslint-parser": "9.x"
-  },
-  "peerDependenciesMeta": {
-    "@babel/eslint-parser": {
-      "optional": true
-    },
-    "@babel/preset-react": {
-      "optional": true
-    },
-    "@typescript-eslint/eslint-plugin": {
-      "optional": true
-    },
-    "@typescript-eslint/parser": {
-      "optional": true
-    },
-    "eslint-plugin-react": {
-      "optional": true
-    },
-    "eslint-plugin-vue": {
-      "optional": true
-    },
-    "typescript": {
-      "optional": true
-    },
-    "vue-eslint-parser": {
-      "optional": true
-    }
-  },
   "packageManager": "pnpm@8.0.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
