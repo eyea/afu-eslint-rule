@@ -2,14 +2,14 @@
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
 # 大改版阶段，不发npm包 改分支 main -> hhh
-name: Publish Node.js Package From Github Repo
+name: Publish Node.js Package
 
 on:
   release:
     types: [created]
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   build:
