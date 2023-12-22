@@ -1,0 +1,7 @@
+# 忽略目录
+.github/
+
+# 忽略文件
+.prettierignore
+.prettierrc.js
+Knowledges.md
