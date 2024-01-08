@@ -1,5 +1,6 @@
 // Basic: Eslint/Vue2 Version: 1.0.0
 const BaseOptions = require('./base.js');
+const Rule = require('./rule.js')
 
 module.exports = {
   ...BaseOptions,
@@ -28,5 +29,6 @@ module.exports = {
   },
  plugins: ['vue'],
  rules: {
+   ...Rule
  },
 }
