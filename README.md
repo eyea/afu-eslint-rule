@@ -73,7 +73,7 @@ AfuTeam Eslint Rules 是一个基于 eslint 的 __前端代码规范集合__。
 <em> 默认依赖使用最新；对于使用默认安装依赖如果运行 __eslint__ 有问题的，可尝试下面备注提供参考的版本</em>
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest -D
+pnpm i @afuteam/eslint-plugin-fe@latest -D
 ```
 
 ## 配置
@@ -95,7 +95,7 @@ module.exports = {
 ### JavaScript
 
 ```bash
-pnpm i eslint @afuteam/eslint-plugin-fe@latest -D
+pnpm i eslint @babel/core @babel/eslint-parser  -D
 ```
 
 ```js
@@ -115,7 +115,7 @@ module.exports = {
 #### React16.x
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest eslint-plugin-react -D
+pnpm i eslint@7 babel-eslint@10 eslint-plugin-react@7 -D
 ```
 
 ```js
@@ -130,20 +130,11 @@ module.exports = {
 }
 ```
 
-<details>
-  <summary>备注</summary>
-  <ul>
-    <li><em>babel-eslint最新10.1.0 已废弃，建议使用 @babel/eslint-parser</em></li>
-    <li>eslint ^7.11.0</li>
-    <li>eslint-plugin-react ^7.21.4</li>
-  </ul>
-</details>
-
 
 #### React17.x+
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest eslint-plugin-react @babel/preset-react -D
+pnpm i eslint @babel/core @babel/eslint-parser eslint-plugin-react @babel/preset-react -D
 ```
 
 ```js
@@ -174,7 +165,7 @@ module.exports = {
 #### Vue2.x
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest vue-eslint-parser eslint-plugin-vue -D
+pnpm i eslint@7 babel-eslint@10 eslint-plugin-vue@9 vue-eslint-parser@9 -D
 ```
 
 ```js
@@ -188,21 +179,11 @@ module.exports = {
   ]
 }
 ```
-<details>
-  <summary>备注</summary>
-  <ul>
-    <li>babel-eslint最新10.1.0 已废弃，建议使用 @babel/eslint-parser</li>
-    <li>eslint ^7.11.0</li>
-    <li>vue-eslint-parser ^7.1.1</li>
-    <li>eslint-plugin-vue ^6.2.2</li>
-  </ul>
-</details>
-
 
 #### Vue3.x
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest vue-eslint-parser eslint-plugin-vue -D
+pnpm i eslint @babel/core @babel/eslint-parser vue-eslint-parser eslint-plugin-vue -D
 ```
 
 ```js
@@ -233,7 +214,7 @@ module.exports = {
 #### typescript4.x
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest @typescript-eslint/parser@4.x @typescript-eslint/eslint-plugin@4.x -D
+pnpm i eslint@7 babel-eslint@10 @typescript-eslint/parser@4.x @typescript-eslint/eslint-plugin@4.x  -D
 ```
 
 ```js
@@ -247,21 +228,13 @@ module.exports = {
   ]
 }
 ```
-<details>
-  <summary>备注</summary>
-  <ul>
-    <li>babel-eslint最新10.1.0 已废弃，建议使用 @babel/eslint-parser</li>
-    <li>eslint ^7.11.0</li>
-    <li> @typescript-eslint/parser ^4.4.1</li>
-    <li>@typescript-eslint/eslint-plugin ^4.4.1</li>
-  </ul>
-</details>
+
 
 
 #### typescript5.x+
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+pnpm i eslint @babel/core @babel/eslint-parser @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 ```
 
 ```js
@@ -292,7 +265,7 @@ module.exports = {
 #### vue2.x + typescipt4.x
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest vue-eslint-parser eslint-plugin-vue  @typescript-eslint/parser@4.x @typescript-eslint/eslint-plugin@4.x -D
+pnpm i eslint@7 babel-eslint@10 vue-eslint-parser eslint-plugin-vue @typescript-eslint/parser@4.x @typescript-eslint/eslint-plugin@4.x  -D
 ```
 
 ```js
@@ -321,7 +294,7 @@ module.exports = {
 #### react17.x + typescript5.x
 
 ```bash
-pnpm i eslint @babel/core @babel/eslint-parser @afuteam/eslint-plugin-fe@latest eslint-plugin-react @babel/preset-react  @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+pnpm i eslint @babel/core @babel/eslint-parser eslint-plugin-react @babel/preset-react  @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 ```
 
 ```js
