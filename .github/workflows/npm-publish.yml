@@ -19,6 +19,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm install -g npm
       - run: npm ci
-      - run: npm publish --provenance --access public --tag alpha.2
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.AFUTEAM_LINT_PUBLISH_NPM_TOKEN}}
