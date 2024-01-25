@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eyea/eslint-plugin-fe.git"
+    "url": "https://github.com/eyea/afu-eslint-rule"
   },
   "keywords": [
     "AfuTeam",
