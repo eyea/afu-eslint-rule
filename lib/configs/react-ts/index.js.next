@@ -1,7 +1,9 @@
 
+const ReactjsRules = require("../react-js.js");
 const JSRules = require("../js.js");
 
 module.exports = {
+  ...ReactjsRules,
   root: true,
   env: {
     browser: true,
@@ -9,12 +11,13 @@ module.exports = {
     jest: true,
     node: true,
   },
-  extends: [
+  extends: [...new Set([
+    ...ReactjsRules.extends,
     "react-app",
     "react-app/jest",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:import/typescript",
-  ],
+  ])],
   overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -25,10 +28,10 @@ module.exports = {
     // project: path.resolve(__dirname, 'tsconfig.json'),
     tsconfigRootDir: __dirname,
   },
-  plugins: ["react"],
+  plugins: [...new Set(["react", ...ReactjsRules.plugins])],
   rules: {
     ...JSRules.rules,
-
+    ...ReactjsRules.rules,
     'no-undef': 'off',
     'react/sort-comp': 'off',
     'dot-notation': 'off',

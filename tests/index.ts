@@ -1,3 +1,4 @@
+
 import { RoleTreeNode } from "@/types/types";
 /**
  * 删除对象中，value为空的key
@@ -6,6 +7,7 @@ import { RoleTreeNode } from "@/types/types";
  */
 export const delNullParam = (obj: any) => {
   const param: any = {};
+// eslint-disable-next-line
   for (let k in obj) {
     if (obj[k]) {
       param[k] = obj[k];

@@ -81,3 +81,6 @@ npx @afuteam/eslint-plugin-fe@latest --help=type
 ```sh
 npx @afuteam/eslint-plugin-fe@latest --type=react-ts --path=src/
 ```
+
+## 规则
+2.0.1 默认禁止lint 的行内disable注释；但支持打开 **--allowInlineConfig=true**

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-// TODO
 const fs = require("fs");
 const path = require("path");
 const { ESLint } = require("eslint");
@@ -8,9 +7,9 @@ const LibRulesAndConfigs = require("../lib/index"); // lib定义的规则名称�
 const supportFileExtNames = require("../lib/execConfigs/supportFileExtNames"); // 支持的文件类型名后缀集合
 const BlackFilesList = require("../lib/execConfigs/BlackFilesList"); // 排除的路径集合
 
-// const BlackFilesListArr = []; // 已排除的目录列表
 let targetPath = "";
 let type = "";
+let allowInlineConfig = false
 
 const filesToLint = [];
 
@@ -22,7 +21,8 @@ function generateEslintInstances() {
   for (const name of lintnames) {
     const pathToConfigFile = require.resolve(`@afuteam/eslint-plugin-fe/lib/configs/${name}.js`);
 
-    eslintInstances[name] = new ESLint({ overrideConfigFile: pathToConfigFile, useEslintrc: false});
+    // 禁止行内配置 allowInlineConfig
+    eslintInstances[name] = new ESLint({ overrideConfigFile: pathToConfigFile, useEslintrc: false, allowInlineConfig: allowInlineConfig });
   }
 
 }
@@ -69,6 +69,7 @@ async function lintFiles(filePaths) {
         return
       }
 
+      // console.log(fileGroups[fileType])
       const results = await whichEslintInstances.lintFiles(
         fileGroups[fileType]
       );
@@ -123,6 +124,10 @@ function handleProcessArgv() {
     process.exit(0);   // 结束程序
   }
 
+  if(argv.allowInlineConfig === 'true') {
+    allowInlineConfig = true;
+  }
+
   if (argv.path) {
     targetPath = argv.path;
   }
@@ -143,9 +148,6 @@ function curPathIsBlackDirectory(targetPath) {
   const basename = path.basename(targetPath);
 
   let isBlackFile = BlackFilesList.includes(basename)
-  // if(isBlackFile) {
-  //   BlackFilesListArr.push(basename)
-  // }
   return isBlackFile
 }
 
