@@ -83,4 +83,6 @@ npx @afuteam/eslint-plugin-fe@latest --type=react-ts --path=src/
 ```
 
 ## 规则
-2.0.1 默认禁止lint 的行内disable注释；但支持打开 **--allowInlineConfig=true**
+2.0.1
+1. 默认禁止lint 的行内disable注释；但支持npx方式来打开 **--allowInlineConfig=true**
+2. 忽略 min.js iconfont.js 结尾的js文件
