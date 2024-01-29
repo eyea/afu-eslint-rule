@@ -6,6 +6,7 @@ const { ESLint } = require("eslint");
 const LibRulesAndConfigs = require("../lib/index"); // lib定义的规则名称集
 const supportFileExtNames = require("../lib/execConfigs/supportFileExtNames"); // 支持的文件类型名后缀集合
 const BlackFilesList = require("../lib/execConfigs/BlackFilesList"); // 排除的路径集合
+const FileIgnoredList = require("../lib/execConfigs/FileIgnoredList"); // 排除的文件集合
 
 let targetPath = "";
 let type = "";
@@ -22,7 +23,7 @@ function generateEslintInstances() {
     const pathToConfigFile = require.resolve(`@afuteam/eslint-plugin-fe/lib/configs/${name}.js`);
 
     // 禁止行内配置 allowInlineConfig
-    eslintInstances[name] = new ESLint({ overrideConfigFile: pathToConfigFile, useEslintrc: false, allowInlineConfig: allowInlineConfig });
+    eslintInstances[name] = new ESLint({ overrideConfigFile: pathToConfigFile, useEslintrc: false, allowInlineConfig: allowInlineConfig, });
   }
 
 }
@@ -39,7 +40,13 @@ function handleSelectWhichEslintInstances(type, eslintInstances) {
   return eslintInstances[type] || "";
 }
 
-// TODO lintType 可能是多个，需要支持的，暂时不支持
+// 判断文件名后缀是否在黑名单
+function isFileIgnored(filePath) {
+  const fileName = path.basename(filePath);
+  return FileIgnoredList.some(blackName => fileName.endsWith(blackName));
+}
+
+// TODO lintType 暂不支持 多个，比如 Astro 类型的项目
 
 async function lintFiles(filePaths) {
 
@@ -47,8 +54,10 @@ async function lintFiles(filePaths) {
   let totalWarnings = 0;
 
   for (const filePath of filePaths) {
+    const curFileIsIgnored = isFileIgnored(filePath);
+
     const extName = path.extname(filePath).slice(1);
-    if (fileGroups[extName]) {
+    if (!curFileIsIgnored && fileGroups[extName]) {
       fileGroups[extName].push(filePath);
     }
   }
@@ -87,6 +96,7 @@ async function lintFiles(filePaths) {
   }
 
   console.log('Total 排除目录列表:', BlackFilesList);
+  console.log('Total 排除文件名规:', FileIgnoredList);
   console.log('Total 支持文件类型:', supportFileExtNames);
 
   console.log('Total errors:', totalErrors);
