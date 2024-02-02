@@ -143,6 +143,9 @@ function handleProcessArgv() {
   }
   // TODO type 考虑是否支持组合，默认支持一种
   if (argv.type) {
+    if(argv.type.startsWith('error-')) {
+      type = 'js'
+    }
     type = argv.type;
   }
 }
