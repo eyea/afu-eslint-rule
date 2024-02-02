@@ -157,7 +157,7 @@ function handleValidPathExtName(supportFileExtNames, targetPath) {
 function curPathIsBlackDirectory(targetPath) {
   const basename = path.basename(targetPath);
 
-  let isBlackFile = BlackFilesList.includes(basename)
+  let isBlackFile = BlackFilesList.includes(basename) || basename.startsWith('.')
   return isBlackFile
 }
 
