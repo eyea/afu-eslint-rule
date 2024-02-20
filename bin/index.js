@@ -53,7 +53,9 @@ async function lintFiles(filePaths) {
 
   let totalErrors = 0;
   let totalWarnings = 0;
-  let totalLines = 0
+  let totalBlankLines = 0; // 空行
+  let totalCommentLines = 0; // 注释行数
+  let totalCodeLines = 0; // 代码行数
 
   for (const filePath of filePaths) {
     const curFileIsIgnored = isFileIgnored(filePath);
@@ -101,7 +103,10 @@ async function lintFiles(filePaths) {
       // console.log(fileGroups[fileType])
       let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
       // console.log(stdout)
-      totalLines += JSON.parse(stdout)['SUM']['code']
+
+      totalBlankLines += JSON.parse(stdout)['SUM']['blank']
+      totalCommentLines += JSON.parse(stdout)['SUM']['comment']
+      totalCodeLines += JSON.parse(stdout)['SUM']['code']
 
     }
   }
@@ -114,7 +119,9 @@ async function lintFiles(filePaths) {
   // WARN 这三行不可以省略，npx 统计结果用
   console.log('Total errors:', totalErrors);
   console.log('Total warnings:', totalWarnings);
-  console.log('Total totalLines:', totalLines);
+  console.log('Total totalBlankLines:', totalBlankLines);
+  console.log('Total totalCommentLines:', totalCommentLines);
+  console.log('Total totalCodeLines:', totalCodeLines);
 
   console.log('\n')
 
