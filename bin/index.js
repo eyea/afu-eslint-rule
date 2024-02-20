@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const execSync = require('child_process').execSync;
 const { ESLint } = require("eslint");
 const LibRulesAndConfigs = require("../lib/index"); // lib定义的规则名称集
 const supportFileExtNames = require("../lib/execConfigs/supportFileExtNames"); // 支持的文件类型名后缀集合
@@ -52,6 +53,7 @@ async function lintFiles(filePaths) {
 
   let totalErrors = 0;
   let totalWarnings = 0;
+  let totalLines = 0
 
   for (const filePath of filePaths) {
     const curFileIsIgnored = isFileIgnored(filePath);
@@ -92,15 +94,30 @@ async function lintFiles(filePaths) {
         });
         console.error(resultText);
       }
+
+
+      // 统计进行lint的代码行数
+      let filePathsStr = fileGroups[fileType].join(' ');
+      // console.log(fileGroups[fileType])
+      let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
+      // console.log(stdout)
+      totalLines += JSON.parse(stdout)['SUM']['code']
+
     }
   }
 
-  console.log('Total 排除目录列表:', BlackFilesList);
-  console.log('Total 排除文件名规:', FileIgnoredList);
-  console.log('Total 支持文件类型:', supportFileExtNames);
+  console.log('排除目录列表:\n', JSON.stringify(BlackFilesList));
+  console.log('排除文件名:', FileIgnoredList);
+  console.log('支持文件类型:', supportFileExtNames);
+  console.log('\n')
 
+  // WARN 这三行不可以省略，npx 统计结果用
   console.log('Total errors:', totalErrors);
   console.log('Total warnings:', totalWarnings);
+  console.log('Total totalLines:', totalLines);
+
+  console.log('\n')
+
 
 }
 
