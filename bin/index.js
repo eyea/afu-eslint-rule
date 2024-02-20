@@ -101,12 +101,13 @@ async function lintFiles(filePaths) {
       // 统计进行lint的代码行数
       let filePathsStr = fileGroups[fileType].join(' ');
       // console.log(fileGroups[fileType])
-      let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
-      // console.log(stdout)
+      // let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
+      // console.log('wow\n', JSON.parse(stdout))
 
-      totalBlankLines += JSON.parse(stdout)['SUM']['blank']
-      totalCommentLines += JSON.parse(stdout)['SUM']['comment']
-      totalCodeLines += JSON.parse(stdout)['SUM']['code']
+      let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
+      totalBlankLines += JSON.parse(stdout)['SUM']?.blank || 0
+      totalCommentLines += JSON.parse(stdout)['SUM']?.comment || 0
+      totalCodeLines += JSON.parse(stdout)['SUM']?.code || 0
 
     }
   }
