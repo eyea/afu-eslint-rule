@@ -16,8 +16,9 @@ let allowInlineConfig = false
 const filesToLint = [];
 
 const eslintInstances = {};
-//指定cloc在node_modules里面的路径
-const clocPath = path.join('./', 'node_modules/cloc', 'lib', 'cloc');
+
+//指定cloc在的路径
+const clocPath = path.join(__dirname, 'cloc');
 
 function generateEslintInstances() {
   const lintnames = Object.keys(LibRulesAndConfigs.configsFilePaths);
@@ -101,15 +102,20 @@ async function lintFiles(filePaths) {
 
 
       // 统计进行lint的代码行数
-      let filePathsStr = fileGroups[fileType].join(' ');
-      // console.log(fileGroups[fileType])
-      // let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
-      // console.log('wow\n', JSON.parse(stdout))
+      try {
+        let filePathsStr = fileGroups[fileType].join(' ');
+        // console.log(fileGroups[fileType])
+        // let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
+        // console.log('wow\n', JSON.parse(stdout))
 
-      let stdout = execSync(`${clocPath} --json ${filePathsStr}`).toString();
-      totalBlankLines += JSON.parse(stdout)['SUM']?.blank || 0
-      totalCommentLines += JSON.parse(stdout)['SUM']?.comment || 0
-      totalCodeLines += JSON.parse(stdout)['SUM']?.code || 0
+        let stdout = execSync(`${clocPath} --json ${filePathsStr}`).toString();
+        totalBlankLines += JSON.parse(stdout)['SUM']?.blank || 0
+        totalCommentLines += JSON.parse(stdout)['SUM']?.comment || 0
+        totalCodeLines += JSON.parse(stdout)['SUM']?.code || 0
+      } catch (error) {
+        console.warn('统计代码行数异常:\n', error);
+      }
+
 
     }
   }
