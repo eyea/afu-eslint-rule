@@ -16,6 +16,8 @@ let allowInlineConfig = false
 const filesToLint = [];
 
 const eslintInstances = {};
+//指定cloc在node_modules里面的路径
+const clocPath = path.join('./', 'node_modules/cloc', 'lib', 'cloc');
 
 function generateEslintInstances() {
   const lintnames = Object.keys(LibRulesAndConfigs.configsFilePaths);
@@ -104,7 +106,7 @@ async function lintFiles(filePaths) {
       // let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
       // console.log('wow\n', JSON.parse(stdout))
 
-      let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
+      let stdout = execSync(`${clocPath} --json ${filePathsStr}`).toString();
       totalBlankLines += JSON.parse(stdout)['SUM']?.blank || 0
       totalCommentLines += JSON.parse(stdout)['SUM']?.comment || 0
       totalCodeLines += JSON.parse(stdout)['SUM']?.code || 0
@@ -117,7 +119,7 @@ async function lintFiles(filePaths) {
   console.log('支持文件类型:', supportFileExtNames);
   console.log('\n')
 
-  // WARN 这三行不可以省略，npx 统计结果用
+  // WARN 这三行不可以省略和更改，npx 统计结果用
   console.log('Total errors:', totalErrors);
   console.log('Total warnings:', totalWarnings);
   console.log('Total totalBlankLines:', totalBlankLines);

@@ -1,6 +1,6 @@
 {
   "name": "@afuteam/eslint-plugin-fe",
-  "version": "2.0.5-beta.6",
+  "version": "2.0.5-beta.7",
   "description": "AfuTeam ESLint Plugin",
   "main": "./lib/index.js",
   "exports": {
@@ -49,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "@vue/eslint-config-typescript": "^11.0.2",
+    "cloc": "^2.0.0-cloc",
     "eslint": ">=7",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-eslint-plugin": "^5.0.0",
