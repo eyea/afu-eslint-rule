@@ -108,7 +108,7 @@ async function lintFiles(filePaths) {
         // let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
         // console.log('wow\n', JSON.parse(stdout))
 
-        let stdout = execSync(`${clocPath} --json ${filePathsStr}`).toString();
+        let stdout = execSync(`${clocPath} --json '${filePathsStr}'`).toString();
         totalBlankLines += JSON.parse(stdout)['SUM']?.blank || 0
         totalCommentLines += JSON.parse(stdout)['SUM']?.comment || 0
         totalCodeLines += JSON.parse(stdout)['SUM']?.code || 0
