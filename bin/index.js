@@ -27,7 +27,7 @@ function generateEslintInstances() {
     const pathToConfigFile = require.resolve(`@afuteam/eslint-plugin-fe/lib/configs/${name}.js`);
 
     // 禁止行内配置 allowInlineConfig
-    eslintInstances[name] = new ESLint({ overrideConfigFile: pathToConfigFile, useEslintrc: false, allowInlineConfig: allowInlineConfig, });
+    eslintInstances[name] = new ESLint({ overrideConfigFile: pathToConfigFile, useEslintrc: false,  ignore: false, allowInlineConfig: allowInlineConfig, });
   }
 
 }
