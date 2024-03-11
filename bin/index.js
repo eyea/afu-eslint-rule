@@ -59,6 +59,7 @@ async function lintFiles(filePaths) {
   let totalBlankLines = 0; // 空行
   let totalCommentLines = 0; // 注释行数
   let totalCodeLines = 0; // 代码行数
+  let complexityData = []; // 复杂度统计
 
   for (const filePath of filePaths) {
     const curFileIsIgnored = isFileIgnored(filePath);
@@ -85,7 +86,6 @@ async function lintFiles(filePaths) {
         return
       }
 
-      // console.log(fileGroups[fileType])
       const results = await whichEslintInstances.lintFiles(
         fileGroups[fileType]
       );
@@ -97,9 +97,18 @@ async function lintFiles(filePaths) {
           totalErrors += result.errorCount;
           totalWarnings += result.warningCount;
         });
+        // 这个是给开发者看的，方便结合编辑器直接定位到问题处
         console.error(resultText);
       }
 
+      // 复杂度
+      if(results?.length > 0) {
+        results.forEach(result => {
+          const messageWhichRuleId = 'complexity'
+          const complexityMsg = result?.messages?.filter(item => item.ruleId === messageWhichRuleId)
+          complexityData.push(...complexityMsg)
+        })
+      }
 
       // 统计进行lint的代码行数
       try {
@@ -114,9 +123,6 @@ async function lintFiles(filePaths) {
         });
         let filePathsStr = dealNameHasBlank.join(' ');
 
-        // let stdout = execSync(`cloc --json ${filePathsStr}`).toString();
-        // console.log('wow\n', JSON.parse(stdout))
-
         let stdout = execSync(`${clocPath} --json ${filePathsStr}`).toString();
         totalBlankLines += JSON.parse(stdout)['SUM']?.blank || 0
         totalCommentLines += JSON.parse(stdout)['SUM']?.comment || 0
@@ -129,8 +135,8 @@ async function lintFiles(filePaths) {
     }
   }
 
-  console.log('排除目录列表:\n', JSON.stringify(BlackFilesList));
-  console.log('排除文件名:', FileIgnoredList);
+  // console.log('排除目录列表:\n', JSON.stringify(BlackFilesList));
+  // console.log('排除文件名:', FileIgnoredList);
   console.log('支持文件类型:', supportFileExtNames);
   console.log('\n')
 
@@ -140,6 +146,8 @@ async function lintFiles(filePaths) {
   console.log('Total totalBlankLines:', totalBlankLines);
   console.log('Total totalCommentLines:', totalCommentLines);
   console.log('Total totalCodeLines:', totalCodeLines);
+  console.log('Total complexityDataLength:', complexityData.length);
+  console.log('Total complexityData:', JSON.stringify(complexityData));
 
   console.log('\n')
 
