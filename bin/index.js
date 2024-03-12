@@ -104,7 +104,7 @@ async function lintFiles(filePaths) {
       // 复杂度
       if(results?.length > 0) {
         results.forEach(result => {
-          const messageWhichRuleId = 'complexity'
+          const messageWhichRuleId = '@afuteam/fe/complexity-without-switchcase'
           const complexityMsg = result?.messages?.filter(item => item.ruleId === messageWhichRuleId)
           complexityData.push(...complexityMsg)
         })
@@ -191,7 +191,7 @@ function handleProcessArgv() {
   if (argv.path) {
     targetPath = argv.path;
   }
-  // TODO type 考虑是否支持组合，默认支持一种
+  // type 默认支持一种
   if (argv.type) {
     if(argv.type.startsWith('error-')) {
       type = 'js'
