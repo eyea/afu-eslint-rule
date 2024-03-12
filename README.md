@@ -82,7 +82,11 @@ npx @afuteam/eslint-plugin-fe@latest --help=type
 npx @afuteam/eslint-plugin-fe@latest --type=react-ts --path=src/
 ```
 
-## 规则
+## Tips
+2.0.7
+1. 关闭默认的 `complexity`;
+2. 基于 `complexity` 新增规则 `complexity-without-switchcase`，需要配合 `@afuteam/fe`的 `plugin`使用
+
 2.0.1
 1. 默认禁止lint 的行内disable注释；但支持npx方式来打开 **--allowInlineConfig=true**
 2. 忽略 min.js iconfont.js 结尾的js文件
