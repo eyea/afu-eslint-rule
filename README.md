@@ -83,6 +83,7 @@ npx @afuteam/eslint-plugin-fe@latest --type=react-ts --path=src/
 ```
 
 ## Tips
+
 2.0.7
 1. 关闭默认的 `complexity`;
 2. 基于 `complexity` 新增规则 `complexity-without-switchcase`，需要配合 `@afuteam/fe`的 `plugin`使用
