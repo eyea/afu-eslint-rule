@@ -115,7 +115,8 @@ async function lintFiles(filePaths) {
         // 对于文件名包含空格的需要 添加 引号 否则无法 cloc read，没有的话不用
         const dealNameHasBlank = fileGroups[fileType].map((item) => {
           // 如果字符串中有空格（即 /\s/ 的正则表达式有匹配结果），那么返回被引号包围的字符串
-          if (/\s/.test(item)) {
+          // nuxt项目，path会有 [] 的路径，会导致 cloc 报错
+          if (/[\s()\[\]]/.test(item)) {
             return `"${item}"`;
           }
           // 否则返回原始字符串
